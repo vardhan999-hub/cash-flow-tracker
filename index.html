@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Cash-Flow — Salary & Expense Tracker</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link href="https://fonts.googleapis.com/css2?family=Syne:wght@400;600;700;800&family=DM+Mono:wght@300;400;500&display=swap" rel="stylesheet" />
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/4.4.1/chart.umd.min.js"></script>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+
+  <!-- HEADER -->
+  <header>
+    <div class="logo">
+      <div class="logo-icon">💸</div>
+      <div class="logo-text">Cash<span>Flow</span></div>
+    </div>
+  </header>
+
+  <!-- MAIN -->
+  <main>
+
+    <!-- LEFT PANEL: Inputs -->
+    <div class="left-panel">
+
+      <!-- Salary Card -->
+      <div class="card">
+        <div class="card-title">Set Monthly Salary</div>
+        <label for="salary-input">Total Salary (₹)</label>
+        <input type="number" id="salary-input" placeholder="e.g. 50000" min="0" />
+        <p class="error-msg" id="salary-error">Please enter a valid positive salary.</p>
+        <button class="btn-set" id="set-salary-btn">Set Salary</button>
+      </div>
+
+      <!-- Add Expense Card -->
+      <div class="card">
+        <div class="card-title">Add Expense</div>
+        <label for="expense-name">Expense Name</label>
+        <input type="text" id="expense-name" placeholder="e.g. Rent, Food, Netflix" />
+        <label for="expense-amount">Expense Amount (₹)</label>
+        <input type="number" id="expense-amount" placeholder="e.g. 2000" min="0" />
+        <p class="error-msg" id="expense-error">Name and amount are required. Amount must be positive.</p>
+        <button class="btn-primary" id="add-expense-btn">+ Add Expense</button>
+      </div>
+
+    </div>
+
+    <!-- RIGHT PANEL: Dashboard -->
+    <div class="right-panel">
+
+      <!-- Stats Row -->
+      <div class="stats-row">
+        <div class="stat-card">
+          <div class="stat-label">Total Salary</div>
+          <div class="stat-value salary" id="display-salary">—</div>
+          <div class="stat-sub" id="salary-sub">Not set yet</div>
+        </div>
+        <div class="stat-card">
+          <div class="stat-label">Total Expenses</div>
+          <div class="stat-value expenses" id="display-expenses">—</div>
+          <div class="stat-sub" id="expenses-sub">0 items</div>
+        </div>
+        <div class="stat-card">
+          <div class="stat-label">Remaining Balance</div>
+          <div class="stat-value balance" id="display-balance">—</div>
+          <div class="stat-sub" id="balance-sub">Set your salary first</div>
+        </div>
+      </div>
+
+      <!-- Budget Warning Alert -->
+      <div id="budget-alert">
+        <span class="alert-icon">⚠️</span>
+        <span>Budget Alert: Your remaining balance is below <strong>10%</strong> of your salary!</span>
+      </div>
+
+      <!-- Chart + Expense List -->
+      <div class="bottom-row">
+
+        <!-- Pie Chart -->
+        <div class="chart-card">
+          <div class="card-title">Breakdown</div>
+          <div id="chart-empty" class="chart-empty">
+            <span class="chart-empty-icon">🥧</span>
+            <span>Add expenses to see chart</span>
+          </div>
+          <canvas id="pie-chart" style="display:none; max-height:230px;"></canvas>
+        </div>
+
+        <!-- Expense List -->
+        <div class="list-card">
+          <div class="list-header">
+            <div class="list-title">Expense Log</div>
+            <span class="list-count" id="expense-count">0 items</span>
+          </div>
+          <div class="expense-list" id="expense-list">
+            <div class="list-empty">
+              <span class="list-empty-icon">📋</span>
+              <span>No expenses yet. Start adding!</span>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </main>
+
+  <script src="script.js"></script>
+</body>
+</html>

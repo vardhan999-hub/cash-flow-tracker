@@ -41,7 +41,7 @@ function setSalary() {
   const val = Number(salaryInput.value);
 
   // Validation
-  if (!val || val <= 0) {
+  if (!val || val <= 0 || val > 10000000) {
     salaryError.style.display = 'block';
     return;
   }
@@ -92,7 +92,10 @@ function deleteExpense(id) {
 
 // ─── FORMAT CURRENCY ──────────────────────────────────────────────
 function fmt(amount) {
-  return '₹' + amount.toFixed(2);
+  return new Intl.NumberFormat('en-IN', {
+    style: 'currency',
+    currency: 'INR'
+  }).format(amount);
 }
 
 // ─── ESCAPE HTML (prevent XSS) ────────────────────────────────────
@@ -126,7 +129,7 @@ function render() {
   displayBalance.textContent = salary > 0 ? fmt(balance) : '—';
   displayBalance.className   = 'stat-value balance' + (isWarning ? ' warning' : '');
   balanceSub.textContent     = salary > 0
-    ? (balance >= 0 ? 'Looking good!' : 'Overspent!')
+    ? (isWarning ? 'Low balance!' : (balance >= 0 ? 'Looking good!' : 'Overspent!'))
     : 'Set your salary first';
 
   // ── Budget Alert
@@ -244,6 +247,17 @@ expenseList.addEventListener('click', function(e) {
     const id = Number(e.target.dataset.id);
     deleteExpense(id);
   }
+});
+
+// Hide errors when user starts typing
+salaryInput.addEventListener('input', () => {
+  salaryError.style.display = 'none';
+});
+expenseNameInput.addEventListener('input', () => {
+  expenseError.style.display = 'none';
+});
+expenseAmountInput.addEventListener('input', () => {
+  expenseError.style.display = 'none';
 });
 
 // Allow Enter key on inputs

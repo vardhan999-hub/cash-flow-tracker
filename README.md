@@ -3,6 +3,10 @@
 **Week 2 Mission | Prodesk IT Internship**
 **Difficulty Level: Level 2 (Intermediate)**
 
+![HTML](https://img.shields.io/badge/HTML-5-orange)
+![CSS](https://img.shields.io/badge/CSS-3-blue)
+![JavaScript](https://img.shields.io/badge/JavaScript-ES6-yellow)
+
 A clean, responsive web app to track salary, expenses, and savings in real-time.
 
 ---
@@ -11,7 +15,7 @@ A clean, responsive web app to track salary, expenses, and savings in real-time.
 
 - **GitHub Repository:** https://github.com/vardhan999-hub/cash-flow-tracker
 - **Live Demo (Netlify):** https://cash-flow-harsha.netlify.app/
-- **Demo Video:** https://your-video-link
+- **Demo Video:** https://drive.google.com/file/d/1QdMTmcHS5hhs8zwUcK3km_bqYxFuqQBX/view?usp=sharing
 
 ---
 

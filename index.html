@@ -29,20 +29,20 @@
       <div class="card">
         <div class="card-title">Set Monthly Salary</div>
         <label for="salary-input">Total Salary (₹)</label>
-        <input type="number" id="salary-input" placeholder="e.g. 50000" min="0" />
-        <p class="error-msg" id="salary-error">Please enter a valid positive salary.</p>
-        <button class="btn-set" id="set-salary-btn">Set Salary</button>
+        <input type="number" id="salary-input" placeholder="e.g. 50000" min="1" max="10000000" inputmode="numeric" title="Enter your monthly salary" required />
+        <p class="error-msg" id="salary-error">Please enter a valid salary between ₹1 and ₹1,00,00,000.</p>
+        <button class="btn-set" id="set-salary-btn" type="button">Set Salary</button>
       </div>
 
       <!-- Add Expense Card -->
       <div class="card">
         <div class="card-title">Add Expense</div>
         <label for="expense-name">Expense Name</label>
-        <input type="text" id="expense-name" placeholder="e.g. Rent, Food, Netflix" />
+        <input type="text" id="expense-name" placeholder="e.g. Rent, Food, Netflix" title="Enter the name of your expense" required />
         <label for="expense-amount">Expense Amount (₹)</label>
-        <input type="number" id="expense-amount" placeholder="e.g. 2000" min="0" />
+        <input type="number" id="expense-amount" placeholder="e.g. 2000" min="1" inputmode="numeric" title="Enter the amount spent" />
         <p class="error-msg" id="expense-error">Name and amount are required. Amount must be positive.</p>
-        <button class="btn-primary" id="add-expense-btn">+ Add Expense</button>
+        <button class="btn-primary" id="add-expense-btn" type="button">+ Add Expense</button>
       </div>
 
     </div>
@@ -64,7 +64,7 @@
         </div>
         <div class="stat-card">
           <div class="stat-label">Remaining Balance</div>
-          <div class="stat-value balance" id="display-balance">—</div>
+          <div class="stat-value balance" id="display-balance" aria-live="polite">—</div>
           <div class="stat-sub" id="balance-sub">Set your salary first</div>
         </div>
       </div>
